@@ -246,6 +246,28 @@ input[type="color"] {
 .scope-note h2 { font-size: 1.05rem; }
 .scope-note p, .scope-note ul { color: var(--muted); }
 .scope-note ul { padding-left: 1.2rem; }
+.paid-review {
+  margin-top: 1.25rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface-raised);
+}
+.paid-review p { margin: 0 0 0.65rem; }
+.paid-review strong { color: var(--text); }
+.paid-review .paid-review-label { color: var(--accent); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+.review-link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  color: var(--accent-strong);
+  font-weight: 800;
+  text-decoration: none;
+}
+.review-link:hover { background: rgba(120, 220, 232, 0.1); }
 
 footer { padding: 2.25rem 0 3rem; color: var(--muted); font-size: 0.85rem; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
