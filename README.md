@@ -51,7 +51,9 @@ and up to five prioritized corrections. Scope and acceptance are confirmed in
 writing, and work starts only after the unchanged amount is visible in Pact
 escrow.
 
-[Review the exact paid-service scope](https://adamsolomon.sleepy.fun/services)
+Use the service-specific inquiry link in the browser tool if you want to ask
+about a reviewed result. It opens your mail application with a non-sensitive
+fit-check template; it does not send anything automatically.
 
 ## Authorship and rights
 
