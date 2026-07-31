@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Game UI Accessibility Preflight</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to the preflight workspace</a>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">Offline design utility</p>
+      <h1>Game UI Accessibility Preflight</h1>
+      <p class="lede">Check a screen's contrast, focus, target size, color cues, keyboard path, and motion risks before playtesting.</p>
+    </div>
+    <p class="privacy-pill" aria-label="Privacy: the application does not upload field values">No field uploads</p>
+  </header>
+
+  <main id="workspace" class="workspace">
+    <section class="panel controls-panel" aria-labelledby="inputs-title">
+      <div class="section-heading">
+        <div>
+          <p class="step">01 · Describe the screen</p>
+          <h2 id="inputs-title">Preflight inputs</h2>
+        </div>
+        <button class="quiet-button" id="reset-button" type="button">Reset example</button>
+      </div>
+
+      <fieldset>
+        <legend>Project context</legend>
+        <div class="field-grid two-columns">
+          <label>Project or game
+            <input id="project-name" name="projectName" type="text" value="Untitled game" maxlength="120">
+          </label>
+          <label>Screen or flow
+            <input id="screen-name" name="screenName" type="text" value="Main menu" maxlength="120">
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Visual colors</legend>
+        <div class="color-grid">
+          <label>Text
+            <span class="color-control">
+              <input id="text-color-picker" type="color" value="#f7f8ff" aria-label="Text color picker">
+              <input id="text-color" name="textColor" type="text" value="#F7F8FF" inputmode="text" maxlength="7" aria-label="Text color hex value">
+            </span>
+          </label>
+          <label>Background
+            <span class="color-control">
+              <input id="background-color-picker" type="color" value="#101525" aria-label="Background color picker">
+              <input id="background-color" name="backgroundColor" type="text" value="#101525" inputmode="text" maxlength="7" aria-label="Background color hex value">
+            </span>
+          </label>
+          <label>Control edge / icon
+            <span class="color-control">
+              <input id="ui-color-picker" type="color" value="#78dce8" aria-label="Control edge color picker">
+              <input id="ui-color" name="uiColor" type="text" value="#78DCE8" inputmode="text" maxlength="7" aria-label="Control edge color hex value">
+            </span>
+          </label>
+          <label>Focus indicator
+            <span class="color-control">
+              <input id="focus-color-picker" type="color" value="#ffd866" aria-label="Focus indicator color picker">
+              <input id="focus-color" name="focusColor" type="text" value="#FFD866" inputmode="text" maxlength="7" aria-label="Focus indicator color hex value">
+            </span>
+          </label>
+        </div>
+        <div class="field-grid three-columns compact-grid">
+          <label>Text size (CSS px)
+            <input id="text-size" name="textSizePx" type="number" min="8" max="160" step="1" value="16">
+          </label>
+          <label>Target width (CSS px)
+            <input id="target-width" name="targetWidthPx" type="number" min="1" max="500" step="1" value="44">
+          </label>
+          <label>Target height (CSS px)
+            <input id="target-height" name="targetHeightPx" type="number" min="1" max="500" step="1" value="44">
+          </label>
+          <label>Focus thickness (CSS px)
+            <input id="focus-thickness" name="focusThicknessPx" type="number" min="0" max="20" step="0.5" value="2">
+          </label>
+          <label>Measured maximum flashes / second (enter 0 if none)
+            <input id="flashes-per-second" name="flashesPerSecond" type="number" min="0" max="60" step="0.5" placeholder="Not measured">
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Manual checks</legend>
+        <div class="check-list">
+          <label class="check-row"><input id="bold-text" name="boldText" type="checkbox"> <span>Sample text is bold</span></label>
+          <label class="check-row"><input id="redundant-color-cue" name="hasRedundantColorCue" type="checkbox"> <span>Meaning conveyed by color also has a text, shape, icon, or pattern cue</span></label>
+          <label class="check-row"><input id="keyboard-path" name="keyboardPathVerified" type="checkbox"> <span>The flow is usable without a pointer and has no keyboard trap</span></label>
+          <label class="check-row"><input id="visible-focus" name="visibleFocusVerified" type="checkbox"> <span>Every interactive element exposes a visible focus state</span></label>
+          <label class="check-row"><input id="target-exception" name="targetExceptionVerified" type="checkbox"> <span>An undersized target has a documented WCAG spacing or equivalent-control exception</span></label>
+          <label class="check-row"><input id="flash-threshold" name="flashThresholdVerified" type="checkbox"> <span>Flashing above 3 / second was measured below the general and red-flash thresholds</span></label>
+          <label class="check-row"><input id="motion-control" name="motionControlVerified" type="checkbox"> <span>Nonessential motion can be disabled or follows reduced-motion settings</span></label>
+        </div>
+      </fieldset>
+
+      <label>Notes for the exported report
+        <textarea id="notes" name="notes" rows="4" maxlength="2000" placeholder="Record exceptions, test scenes, device assumptions, or follow-up work."></textarea>
+      </label>
+    </section>
+
+    <section class="results-column" aria-labelledby="results-title">
+      <div class="preview-card" id="live-preview">
+        <p class="preview-label">Live sample</p>
+        <button class="sample-button" type="button">Continue</button>
+        <p class="sample-copy">Readable text and a visible control should remain distinct from this background.</p>
+      </div>
+
+      <section class="panel results-panel">
+        <div class="section-heading">
+          <div>
+            <p class="step">02 · Review the evidence</p>
+            <h2 id="results-title">Preflight result</h2>
+          </div>
+          <p id="summary" class="summary" aria-live="polite"></p>
+        </div>
+
+        <div id="metric-strip" class="metric-strip" aria-label="Computed contrast ratios"></div>
+        <ol id="result-list" class="result-list"></ol>
+
+        <div class="export-actions" aria-label="Export actions">
+          <button class="primary-button" id="export-markdown" type="button">Export Markdown report</button>
+          <button class="secondary-button" id="export-json" type="button">Export JSON</button>
+          <label class="secondary-button file-label">Import JSON
+            <input id="import-json" class="visually-hidden" type="file" accept="application/json,.json">
+          </label>
+        </div>
+        <p id="action-status" class="action-status" aria-live="polite"></p>
+      </section>
+
+      <aside class="scope-note" aria-labelledby="scope-title">
+        <h2 id="scope-title">Use this as a preflight, not a certification</h2>
+        <p>The calculations follow WCAG 2.2 thresholds, but a screen-level form cannot prove full conformance. Test the actual rendered game, input paths, assistive-technology behavior, animation area, and documented exceptions.</p>
+        <ul>
+          <li><a href="https://www.w3.org/TR/WCAG22/" target="_blank" rel="noreferrer">WCAG 2.2 standard</a></li>
+          <li><a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html" target="_blank" rel="noreferrer">Non-text contrast</a></li>
+          <li><a href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html" target="_blank" rel="noreferrer">Target size minimum</a></li>
+          <li><a href="https://www.w3.org/WAI/WCAG22/Understanding/three-flashes-or-below-threshold" target="_blank" rel="noreferrer">Three flashes or below threshold</a></li>
+        </ul>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <p>Version 1.0.0 · The application does not upload field values or make outbound requests after its files load. Hosted use remains subject to the host's ordinary request logging.</p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
