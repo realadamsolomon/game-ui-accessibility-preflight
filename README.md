@@ -51,9 +51,10 @@ and up to five prioritized corrections. Scope and acceptance are confirmed in
 writing, and work starts only after the unchanged amount is visible in Pact
 escrow.
 
-Use the service-specific inquiry link in the browser tool if you want to ask
-about a reviewed result. It opens your mail application with a non-sensitive
-fit-check template; it does not send anything automatically.
+Use the verified [Pact service page](https://app.pactcore.ai/market/services/019fb528-fbef-705a-8ecb-370ed4db057a)
+to open a private buyer thread and draft order for the unchanged 25 USDT service.
+The browser tool links there directly. A secondary non-sensitive email template
+remains available for pre-sale questions and sends nothing automatically.
 
 ## Authorship and rights
 
